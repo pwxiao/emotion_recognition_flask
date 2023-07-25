@@ -35,7 +35,7 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def upload():
 
     words = request.form.get('input_text')
@@ -43,10 +43,10 @@ def upload():
     sentiment = json_data['data']['sentiment']
     sentiment = str(sentiment)
     if sentiment=='1':
-        return '正面的'
+        return  render_template('index.html',result='正面的')
     elif sentiment=='-1':
-        return '负面的'
+        return render_template('index.html',result='负面的')
     else:
-        return '中立的' 
+        return render_template('index.html',result='中立的')
 
 

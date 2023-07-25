@@ -5,11 +5,31 @@
     <meta charset="UTF-8">
     <title>语言情感分析</title>
     <script src="../static/js/function-plot.js"></script>
+    <script>
+      function showProcessingMessage() {
+        document.getElementById("processing-message").style.display = "block";
+      }
+    </script>
     <link rel="stylesheet" href="../static/css/mdui.min.css"/>
+    <style>
+      /* 默认样式 */
+      .mdui-container {
+        width: 960px;
+        margin: 0 auto;
+      }
+      
+      /* 在小屏幕上覆盖默认样式 */
+      @media (max-width: 600px) {
+        .mdui-container {
+          width: 100%;
+          padding: 16px;
+        }
+      }
+    </style>
   </head>
   <body class="mdui-theme-layout-auto" >
     <div>
-   <form action="/predict" method="POST" enctype="multipart/form-data" onsubmit="showProcessingMessage()">
+   <form action="/" method="POST" enctype="multipart/form-data" onsubmit="showProcessingMessage()">
 
       <div class="mdui-container">
         <div class="mdui-textfield mdui-textfield-floating-label">
@@ -36,7 +56,10 @@
 
       <script src="../static/js/mdui.min.js"></script>
     </div>
-    <div id="plot"></div>
+    <div id="processing-message" style="display: none;">
+      <p>正在分析</p>
+    </div>
+    <a1>{{result}}</a2>
   </body>
 
 </html>

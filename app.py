@@ -39,8 +39,14 @@ def main():
 def upload():
 
     words = request.form.get('input_text')
-    
-
-    return work(words)
+    json_data = json.loads(work(words))
+    sentiment = json_data['data']['sentiment']
+    sentiment = str(sentiment)
+    if sentiment=='1':
+        return '正面的'
+    elif sentiment=='-1':
+        return '负面的'
+    else:
+        return '中立的' 
 
 

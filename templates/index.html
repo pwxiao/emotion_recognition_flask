@@ -12,21 +12,7 @@
       }
     </script>
     <link rel="stylesheet" href="../static/css/mdui.min.css"/>
-    <style>
-      /* 默认样式 */
-      .mdui-container {
-        width: 960px;
-        margin: 0 auto;
-      }
-      
-      /* 在小屏幕上覆盖默认样式 */
-      @media (max-width: 600px) {
-        .mdui-container {
-          width: 100%;
-          padding: 16px;
-        }
-      }
-    </style>
+
   </head>
   <body class="mdui-theme-layout-auto" >
     <div>
@@ -60,7 +46,13 @@
     <div id="processing-message" style="display: none;">
       <p><center>正在分析</center></p>
     </div>
-    <a1><center>{{result}}</center></a2>
+    <div class="mdui-typo">
+      <blockquote>
+        <p>输入一段话，可以识别这段话是消极还是积极的</p>
+        <footer>By 乔不思</footer>
+      </blockquote>
+    </div>
+
   </body>
 
 </html>

@@ -42,13 +42,13 @@ def upload():
     json_data = json.loads(work(words))
     sentiment = json_data['data']['sentiment']
     sentiment = str(sentiment)
+    result='出bug了'
     if sentiment=='1':
-        return  '正面的'
+        result='正面的'
     elif sentiment=='-1':
-        return '负面的'
+        result='负面的'
     elif sentiment=='0':
-        return '中立的'
-    else:
-        return '出bug了'
+        result='中立的'
+    return render_template('result.html',result=result)
 
 

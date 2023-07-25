@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="UTF-8">
+    <title>语言情感分析</title>
+    <script src="../static/js/function-plot.js"></script>
+    <link rel="stylesheet" href="../static/css/mdui.min.css"/>
+  </head>
+  <body class="mdui-theme-layout-auto" >
+    <div>
+   <form action="/predict" method="POST" enctype="multipart/form-data" onsubmit="showProcessingMessage()">
+
+      <div class="mdui-container">
+        <div class="mdui-textfield mdui-textfield-floating-label">
+          <label class="mdui-textfield-label">输入文字：</label>
+          <input class="mdui-textfield-input" type="text" id="function-input" name="input_text"/>
+        </div>
+      </div>
+
+
+      <style>
+    .mdui-color-custom-1 {
+      background-color: #466558;
+      color: #FFFFFF;
+    }
+  </style>
+
+ 
+      <div class="mdui-container">
+        <button id="draw-button" class="mdui-btn mdui-btn-raised mdui-color-custom-1 mdui-float-right">分析</button>
+      </div>
+
+   </form>
+
+
+      <script src="../static/js/mdui.min.js"></script>
+    </div>
+    <div id="plot"></div>
+  </body>
+
+</html>

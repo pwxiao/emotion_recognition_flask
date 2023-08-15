@@ -7,11 +7,6 @@
     <title>语言情感分析</title>
     <script src="../static/js/function-plot.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script>
-      function showProcessingMessage() {
-        document.getElementById("processing-message").style.display = "block";
-      }
-    </script> -->
     <link rel="stylesheet" href="../static/css/mdui.min.css"/>
     <script>
           $(document).ready(function(){
@@ -32,7 +27,7 @@
           );
         </script>
   </head>
-  <body class="mdui-theme-layout-auto" >
+  <body class="mdui-theme-layout-auto mdui-theme-primary-indigo mdui-theme-accent-indigo" >
     <div>
 
 
@@ -44,34 +39,31 @@
       </div>
 
 
-      <style>
-    .mdui-color-custom-1 {
-      background-color: #0c61e0;
-      color: #FFFFFF;
-    }
-  </style>
+
 
  
       <div class="mdui-container">
-        <button id="draw-button" class="mdui-btn mdui-btn-raised mdui-color-custom-1 mdui-float-right">分析</button>
+        <button id="draw-button" class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-ripple mdui-float-right">分析</button>
       </div>
 
 
 
       <script src="../static/js/mdui.min.js"></script>
     </div>
+    <div class="mdui-container">
     <div class="mdui-progress" id="progress" style="display:none;">
       <div class="mdui-progress-indeterminate"></div>
     </div>
-   
+   </div>
     <center><div class="mdui-typo-display-1" id="result"></div></center>
+    <div class="mdui-container">
     <div class="mdui-typo">
       <blockquote>
         <p>输入一段话，可以识别这段话是消极还是积极的</p>
         <footer>By 乔不思</footer>
       </blockquote>
     </div>
-
+</div>
   </body>
 
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template
+from flask import Flask,request,render_template,jsonify
 import time
 import urllib.request
 import urllib.parse
@@ -35,10 +35,9 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/predict', methods=['POST'])
-def upload():
-
-    words = request.form.get('input_text')
+@app.route('/process', methods=['POST'])
+def process():
+    words = request.form['data']
     json_data = json.loads(work(words))
     sentiment = json_data['data']['sentiment']
     sentiment = str(sentiment)
@@ -49,6 +48,6 @@ def upload():
         result='负面的'
     elif sentiment=='0':
         result='中立的'
-    return render_template('result.html',result=result)
+    return jsonify(result=result)
 
 

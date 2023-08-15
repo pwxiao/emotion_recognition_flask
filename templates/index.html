@@ -6,17 +6,35 @@
     <meta name="viewport" content="width=device-width">
     <title>语言情感分析</title>
     <script src="../static/js/function-plot.js"></script>
-    <script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script>
       function showProcessingMessage() {
         document.getElementById("processing-message").style.display = "block";
       }
-    </script>
+    </script> -->
     <link rel="stylesheet" href="../static/css/mdui.min.css"/>
-
+    <script>
+          $(document).ready(function(){
+            $('#draw-button').click(function(){
+              $('#progress').show()
+              var data = $('#function-input').val();
+              $.ajax({
+                type:'POST',
+                url:'process',
+                data:{'data':data},
+                success: function(response){
+                  $('#result').text(response.result)
+                  $('#progress').hide()
+                }
+              });
+            });
+          }
+          );
+        </script>
   </head>
   <body class="mdui-theme-layout-auto" >
     <div>
-   <form action="/predict" method="POST" enctype="multipart/form-data" onsubmit="showProcessingMessage()">
+
 
       <div class="mdui-container">
         <div class="mdui-textfield mdui-textfield-floating-label">
@@ -28,7 +46,7 @@
 
       <style>
     .mdui-color-custom-1 {
-      background-color: #466558;
+      background-color: #0c61e0;
       color: #FFFFFF;
     }
   </style>
@@ -38,14 +56,15 @@
         <button id="draw-button" class="mdui-btn mdui-btn-raised mdui-color-custom-1 mdui-float-right">分析</button>
       </div>
 
-   </form>
 
 
       <script src="../static/js/mdui.min.js"></script>
     </div>
-    <div id="processing-message" style="display: none;">
-      <p><center>正在分析</center></p>
+    <div class="mdui-progress" id="progress" style="display:none;">
+      <div class="mdui-progress-indeterminate"></div>
     </div>
+   
+    <center><div class="mdui-typo-display-1" id="result"></div></center>
     <div class="mdui-typo">
       <blockquote>
         <p>输入一段话，可以识别这段话是消极还是积极的</p>
